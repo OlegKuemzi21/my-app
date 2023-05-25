@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useActions } from "../store/action";
+import { IPosts } from "../DataBase/databasetype";
 
 function Test() {
   const { addPosts, removePosts } = useActions();

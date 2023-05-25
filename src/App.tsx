@@ -6,6 +6,7 @@ import { Nav } from "./Nav/Nav";
 import Test from "./pages/Test";
 import { Footer } from "./Footer/Footer";
 import Posts from "./pages/Posts";
+import database from "./DataBase/database";
 
 function App() {
   return (
@@ -17,7 +18,12 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />
-          <Route path="/posts" element={<Posts />} />
+          {database.map((post, index) => (
+            <Route
+              path="/posts"
+              element={<Posts comment={post} key={post.id} />}
+            />
+          ))}
         </Routes>
         <Footer />
       </BrowserRouter>

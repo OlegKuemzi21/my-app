@@ -3,4 +3,5 @@ export interface IPosts {
   name: string;
   work: boolean;
   comment: string;
+  title: string;
 }
