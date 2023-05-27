@@ -18,12 +18,8 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />
-          {database.map((post, index) => (
-            <Route
-              path="/posts"
-              element={<Posts comment={post} key={post.id} />}
-            />
-          ))}
+
+          <Route path="/posts" element={<Posts comment={database[1]} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
