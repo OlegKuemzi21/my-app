@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../store/redux";
 import { useActions } from "../store/action";
 import { ErrorMessage } from "../Helper/ErrorMessage";
+import Comment from "../Helper/Commnet";
 
 function Posts({ comment }: { comment: IPosts }) {
   const dispatch = useDispatch();
@@ -11,11 +12,15 @@ function Posts({ comment }: { comment: IPosts }) {
   const [error, setError] = useState("");
   const { addPosts, removePosts } = useActions();
   const { posts } = useAppSelector((state) => state.posts);
+  const [commentOne, setCommentOne] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const addComment = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     setError("");
+    setLoading(false);
+    setCommentOne(true);
     if (value.trim() === "") {
       setError("Please enter valid title");
       return;
@@ -26,7 +31,7 @@ function Posts({ comment }: { comment: IPosts }) {
   };
 
   return (
-    <div className="h-[1350px]">
+    <div className="h-[1350px] bg-bg-posts">
       <div className="w-full h-screen px-auto mb-16">
         <h1 className="text-center font-bold text-3xl text-textC pt-10">
           Comments
@@ -49,6 +54,14 @@ function Posts({ comment }: { comment: IPosts }) {
             </button>
           </div>
         </form>
+
+        {commentOne && <Comment />}
+
+        {loading && (
+          <p className="text-center text-textC font-bold  text-2xl mt-10">
+            Loading...
+          </p>
+        )}
         {error && <ErrorMessage error={error} />}
         <div className="scrollbar-hide overflow-y-auto  h-[1000px] w-[980px] mx-auto mt-8  ">
           {posts.map((comment) => (

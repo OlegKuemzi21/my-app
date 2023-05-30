@@ -8,12 +8,15 @@ export const Nav = () => {
           <Link to={"/"}> My-app</Link>
         </h1>
 
-        <div className="space-x-32 mx-auto pl-[900px]">
+        <div className="space-x-32 mx-auto pl-[700px]">
           <Link to={"/"} className="text-2xl font-bold text-textC">
             Home
           </Link>
           <Link to={"/project"} className="text-2xl font-bold text-textC">
             Project
+          </Link>
+          <Link to={"/posts"} className="text-2xl font-bold text-textC">
+            Comments
           </Link>
           <Link to={"/about"} className="text-2xl font-bold text-textC">
             About

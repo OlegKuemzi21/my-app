@@ -6,7 +6,7 @@ import { useActions } from "../store/action";
 import { createEmitAndSemanticDiagnosticsBuilderProgram } from "typescript";
 import { clear, error } from "console";
 import { ErrorMessage } from "../Helper/ErrorMessage";
-import { Loading } from "../Helper/Loadiing";
+import Comment from "../Helper/Commnet";
 
 function Test() {
   const dispatch = useDispatch();
@@ -15,13 +15,14 @@ function Test() {
   const [loading, setLoading] = useState(false);
   const { addPosts, removePosts } = useActions();
   const { posts } = useAppSelector((state) => state.posts);
-
-  const submitHandler = () => {};
+  const [comment, setComment] = useState(true);
 
   const addComment = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     setError("");
+    setLoading(false);
+    setComment(true);
     if (value.trim() === "") {
       setError("Please enter valid title");
       return;
@@ -37,10 +38,7 @@ function Test() {
         <h1 className="text-center font-bold text-3xl text-textC pt-10">
           Comments
         </h1>
-        <form
-          className="w-full max-w-sm ml-[759px] mt-12  mb-16"
-          onSubmit={submitHandler}
-        >
+        <form className="w-full max-w-sm ml-[759px] mt-12  mb-16">
           <div className="flex items-center border-b border-textC py-2 ">
             <input
               className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
@@ -59,6 +57,14 @@ function Test() {
             </button>
           </div>
         </form>
+        {comment && <Comment />}
+
+        {loading && (
+          <p className="text-center text-textC font-bold  text-2xl mt-10">
+            Loading...
+          </p>
+        )}
+
         {error && <ErrorMessage error={error} />}
         <div className="scrollbar-hide overflow-y-auto  h-[900px] w-[980px] mx-auto mt-8  ">
           {posts.map((comment) => (
