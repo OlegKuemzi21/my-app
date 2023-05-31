@@ -1,10 +1,10 @@
 export const About = () => {
   return (
     <>
-      <div className="pl-44 bg-bg-about">
+      <div className="pl-44 bg-bg-posts">
         <h1 className="text-4xl font-bold text-textC ">About</h1>
 
-        <div className="h-[1000px] pt-4 pr-60">
+        <div className="h-[1250px] pt-1 pr-60">
           <div className="w-[600px] mx-auto">
             <h3 className="text-3xl font-bold text-textC pb-4 mt-32">
               Hi,I'm Oleg Kuemzhy
@@ -50,12 +50,37 @@ export const About = () => {
               be happy so much.
             </p>
 
-            <h3 className="text-2xl font-bold text-textC pb-4">
-              What's the deal with the happy toast?
-            </h3>
-            <p className="text-xl pb-5 text-textC ">
-              I don't know, ask someone else.
-            </p>
+            <h1 className="text-2xl font-bold text-textC pb-4 pt-2">Skills</h1>
+
+            <h5 className="text-xl font-bold text-textC">Hard Skills</h5>
+
+            <ul className=" grid grid-cols-3 gap-y-3 gap-x-20 list-disc pl-6 text-xl pb-6 pt-2">
+              <li>Javascript</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>React</li>
+              <li>ReduxToolKit</li>
+              <li>RTKquery</li>
+              <li>Typescript</li>
+              <li>NodeJS</li>
+              <li>NextJS</li>
+              <li>TailwindCSS</li>
+              <li>MySQl</li>
+              <li>Git</li>
+              <li>RestAPI</li>
+              <li>AWS</li>
+              <li>ExpressJS</li>
+            </ul>
+
+            <h5 className="text-xl font-bold text-textC">Soft Skills</h5>
+
+            <ul className=" grid grid-cols-3 gap-y-3 gap-x-20 list-disc pl-6 text-xl pb-6 pt-2">
+              <li>Communication</li>
+              <li>Teamwork</li>
+              <li>Creativity</li>
+              <li>Quick learning</li>
+              <li>Self-learning</li>
+            </ul>
           </div>
         </div>
       </div>
